@@ -2,6 +2,7 @@ import React from "react";
 
 import axios from "axios";
 import { Jumbotron } from "./migration";
+import { images } from "../../commonData/images";
 
 const pictureLinkRegex = new RegExp(
   /[(http(s)?):(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/
@@ -40,7 +41,7 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
           {showPic && (
             <img
               className="border border-secondary rounded-circle"
-              src={profilePicUrl}
+              src={images('gab')}
               alt="profilepicture"
               width={imgSize}
               height={imgSize}

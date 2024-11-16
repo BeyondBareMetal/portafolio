@@ -1,84 +1,87 @@
-import React, { useState, useEffect, useCallback } from "react";
-import Container from "react-bootstrap/Container";
+import React, { useState, useEffect } from "react";
+import {Container, Col, Row, Card} from "react-bootstrap";
 import { Jumbotron } from "./migration";
-import Row from "react-bootstrap/Row";
-import ProjectCard from "./ProjectCard";
-import BlogCard from "./BlogCard";
-import axios from "axios";
+import clienteAxios from "../config/clienteAxios";
+import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
-const dummyProject = {
-  name: null,
-  description: null,
-  svn_url: null,
-  stargazers_count: null,
-  languages_url: null,
-  pushed_at: null,
-};
-const API = "https://api.github.com";
-// const gitHubQuery = "/repos?sort=updated&direction=desc";
-// const specficQuerry = "https://api.github.com/repos/hashirshoaeb/";
 
-const Project = ({ heading, username, length, specfic }) => {
-  const allReposAPI = `${API}/users/${username}/repos?sort=updated&direction=desc`;
-  const specficReposAPI = `${API}/repos/${username}`;
-  const dummyProjectsArr = new Array(length + specfic.length).fill(
-    dummyProject
-  );
 
-  const [projectsArray, setProjectsArray] = useState([]);
 
-  const fetchRepos = useCallback(async () => {
-    let repoList = [];
-    try {
-      // getting all repos
-      const response = await axios.get(allReposAPI);
-      // slicing to the length
-      repoList = [...response.data.slice(0, length)];
-      // adding specified repos
-      try {
-        for (let repoName of specfic) {
-          const response = await axios.get(`${specficReposAPI}/${repoName}`);
-          repoList.push(response.data);
+const Blogs = () => {
+
+  const [post, setPost] = useState({})
+  const get_post = async () =>{
+    let data = JSON.stringify({
+      query: `query Publication {
+        publication(host: "beyondbaremetal.hashnode.dev") {
+            isTeam
+            title
+            posts(first: 10) {
+                edges {
+                    node {
+                        title
+                        brief
+                        url
+                    }
+                }
+            }
         }
-      } catch (error) {
-        console.error(error.message);
+    }`,
+      variables: {}
+    });
+      
+    const response = await clienteAxios.post('/', data)
+    console.log(response)
+    try {
+      if (response) {
+        setPost(response.data.data.publication.posts.edges)
       }
-      // setting projectArray
-      // TODO: remove the duplication.
-      setProjectsArray(repoList);
     } catch (error) {
-      console.error(error.message);
+      console.log(error)
+      
     }
-  }, [allReposAPI, length, specfic, specficReposAPI]);
+  }
 
-  useEffect(() => {
-    fetchRepos();
-  }, [fetchRepos]);
+  useEffect(() =>{
+    get_post()
+  },[])
+  console.log('post',post)
+
+
 
   return (
     <Jumbotron fluid id="blog" className="bg-light m-0">
       <Container className="">
         <h2 className="display-4 pb-5 text-center">Recent Post</h2>
         <Row>
-          {projectsArray.length
-            ? projectsArray.map((project, index) => (
-              <BlogCard
-                key={`project-card-${index}`}
-                id={`project-card-${index}`}
-                value={project}
-              />
-            ))
-            : dummyProjectsArr.map((project, index) => (
-              <BlogCard
-                key={`dummy-${index}`}
-                id={`dummy-${index}`}
-                value={project}
-              />
-            ))}
+      	  {post && post.length > 0 ?(
+            	post.map((item) =>(
+                <Col md={6}>
+                  <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <Card.Body>
+                    <Card.Title as="h5">{item.node.title || <Skeleton/>} </Card.Title>
+                    <Card.Text>{(!item.node.brief) ? "" : item.node.brief || <Skeleton/> } </Card.Text>
+                      
+                    </Card.Body>
+
+                    <Card.Footer>
+                      <Link to={item.node.url} target="_blank" className="btn btn-outline-secondary mx-2">Read More</Link>
+                    </Card.Footer>
+
+                  </Card>
+                </Col>
+              ))
+          ):(
+            <div>Cargando...</div>
+          )}
+
+          
+
         </Row>
       </Container>
     </Jumbotron>
   );
 };
 
-export default Project;
+export default Blogs;

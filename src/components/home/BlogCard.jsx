@@ -5,6 +5,8 @@ import Skeleton from "react-loading-skeleton";
 import axios from "axios";
 
 const ProjectCard = ({ value }) => {
+  const [post, setPost] = useState({})
+
   const {
     name,
     description,
@@ -13,6 +15,51 @@ const ProjectCard = ({ value }) => {
     languages_url,
     pushed_at,
   } = value;
+  
+  const get_post = async () =>{
+    let data = JSON.stringify({
+      query: `query Publication {
+        publication(host: "beyondbaremetal.hashnode.dev") {
+            isTeam
+            title
+            posts(first: 10) {
+                edges {
+                    node {
+                        title
+                        brief
+                        url
+                    }
+                }
+            }
+        }
+    }`,
+      variables: {}
+    });
+    
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://gql.hashnode.com/',
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `${process.env.TOKEN_API}`
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      // console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  useEffect(() =>{
+    get_post()
+  },[])
+  
   return (
     <Col md={6}>
       <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
