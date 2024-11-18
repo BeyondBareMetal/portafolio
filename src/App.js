@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Skills from "./components/home/Skills";
 import Blog from "./components/home/Blog";
+import Certifications from "./components/home/Certifications.jsx";
+
 
 // import { Blog } from "./components/blog/Blog";
 // import BlogPost from "./components/blog/BlogPost";
@@ -44,6 +46,8 @@ const Home = React.forwardRef((props, ref) => {
           resume={about.resume}
         />
       )}
+
+      <Certifications/>
       {
         experiences.show && (
           <Experience experiences={experiences}/>
@@ -76,14 +80,10 @@ const Home = React.forwardRef((props, ref) => {
           imageSize={leadership.imageSize}
         />
       )}
-      {skills.show && (
-        <Skills
-          heading={skills.heading}
-          hardSkills={skills.hardSkills}
-          softSkills={skills.softSkills}
-        />
-      )}
+     
+        <Skills/>
       
+
     </>
   );
 });

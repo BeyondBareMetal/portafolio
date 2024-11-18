@@ -57,6 +57,11 @@ const Navigation = React.forwardRef((props, ref) => {
                 About
               </NavLink>
             )}
+
+            <NavLink className="nav-item lead"
+            href={"/#certifications"}>
+              Certifications
+            </NavLink>
           {repos.show && (
 
             <NavLink
