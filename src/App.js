@@ -91,7 +91,7 @@ const App = () => {
   const titleRef = React.useRef();
 
   return (
-    <BrowserRouter basename={"/"}>
+    <BrowserRouter basename={"/portafolio"}>
       {navBar.show && <Navbar ref={titleRef} />}
       <Routes>
         <Route path="/" exact element={<Home ref={titleRef} />} />
