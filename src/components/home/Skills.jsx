@@ -6,7 +6,7 @@ import {Container, Card, Row, Form, Col, Button} from "react-bootstrap";
 import { Jumbotron } from "./migration";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 
-const Skills = () => {
+const Skills = (props) => {
 
 
 
@@ -57,7 +57,20 @@ const Skills = () => {
           </Form>
         </Card.Body>
       </Card>
-       
+
+      <div className="p-5 d-flex justify-content-center">
+            {props.icons.map((icon, index) => (
+              <a
+                key={`social-icon-${index}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={icon.url}
+                aria-label={`My ${icon.image.split("-")[1]}`}
+              >
+                <i className={`fab ${icon.image}  fa-3x socialicons2`} />
+              </a>
+            ))}
+          </div>       
       </Container>
     </Jumbotron>
   );

@@ -82,6 +82,21 @@ code {
   }
 }
 
+.socialicons2 {
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.8s;
+  margin: 4px;
+  &:hover {
+    color: gray;
+    padding-left: 5px;
+    padding-right: 5px;
+    // transition: all 0.8s;
+    margin: 4px;
+  }
+}
+
 .title {
   height: 100%;
   left: 0;

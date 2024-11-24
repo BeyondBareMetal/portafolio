@@ -81,7 +81,7 @@ const Home = React.forwardRef((props, ref) => {
         />
       )}
      
-        <Skills/>
+        <Skills icons={mainBody.icons}/>
       
 
     </>
@@ -99,14 +99,8 @@ const App = () => {
       </Routes>
       {/* {false && <Route path="/blog" exact component={Blog} />}
       {false && <Route path="/blog/:id" component={BlogPost} />} */}
-      <Footer>
-        {getInTouch.show && (
-          <GetInTouch
-            heading={getInTouch.heading}
-            message={getInTouch.message}
-            email={getInTouch.email}
-          />
-        )}
+      <Footer >
+      {getInTouch.show}
       </Footer>
     </BrowserRouter>
   );
