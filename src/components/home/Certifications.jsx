@@ -1,10 +1,6 @@
 import React from "react";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-import SkillsTab from "./SkillsTab";
-import {Container, Card, Row, Form, Col, Button} from "react-bootstrap";
+import {Container, Card, Row, Col,} from "react-bootstrap";
 import { Jumbotron } from "./migration";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { images } from "../../commonData/images";
 import { Link } from "react-router-dom";
 

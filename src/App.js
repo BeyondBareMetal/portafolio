@@ -6,7 +6,6 @@ import {
   about,
   repos,
   leadership,
-  skills,
   getInTouch,
   experiences
 } from "./editable-stuff/config.js";
@@ -15,14 +14,14 @@ import AboutMe from "./components/home/AboutMe";
 import Project from "./components/home/Project";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Skills from "./components/home/Skills";
+import Contact from "./components/home/Contact.jsx";
 import Blog from "./components/home/Blog";
 import Certifications from "./components/home/Certifications.jsx";
 
 
 // import { Blog } from "./components/blog/Blog";
 // import BlogPost from "./components/blog/BlogPost";
-import GetInTouch from "./components/home/GetInTouch.jsx";
+// import GetInTouch from "./components/home/GetInTouch.jsx";
 import Leadership from "./components/home/Leadership.jsx";
 
 import Experience from "./components/home/Experience";
@@ -81,7 +80,7 @@ const Home = React.forwardRef((props, ref) => {
         />
       )}
      
-        <Skills icons={mainBody.icons}/>
+        <Contact icons={mainBody.icons}/>
       
 
     </>

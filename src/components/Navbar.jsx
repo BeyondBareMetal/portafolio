@@ -81,7 +81,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {skills.show && (
             <NavLink
               className="nav-item lead"
-              href={"/#skills"}
+              href={"/#contact"}
             >
               Contact
             </NavLink>
