@@ -38,7 +38,7 @@ const Navigation = React.forwardRef((props, ref) => {
         }`}
       expand="lg"
     >
-      <Navbar.Brand className="navbar-brand" href={"/#home"}>
+      <Navbar.Brand className="navbar-brand" href={"/portafolio/#home"}>
         Home
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
@@ -52,27 +52,27 @@ const Navigation = React.forwardRef((props, ref) => {
             {about.show && (
               <NavLink
                 className="nav-item lead"
-                href={"/#aboutme"}
+                href={"/portafolio/#aboutme"}
               >
                 About
               </NavLink>
             )}
 
             <NavLink className="nav-item lead"
-            href={"/#certifications"}>
+            href={"/portafolio/#certifications"}>
               Certifications
             </NavLink>
           {repos.show && (
 
             <NavLink
-              href={"/#projects"}
+              href={"/portafolio/#projects"}
             >
               Projects
             </NavLink>
           )}
           <NavLink
             className="nav-item lead"
-            href={"/#blog"}
+            href={"/portafolio/#blog"}
         
           >
             Blog
@@ -81,7 +81,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {skills.show && (
             <NavLink
               className="nav-item lead"
-              href={"/#contact"}
+              href={"/portafolio/#contact"}
             >
               Contact
             </NavLink>
