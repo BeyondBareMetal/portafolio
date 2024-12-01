@@ -9,7 +9,7 @@ const mainBody = {
   firstName: "Gabriel",
   middleName: "",
   lastName: "Gonzalez",
-  message: " Beyond Bare Metal ",
+  message: " Systems Engineer  ",
   icons: [
     {
       image: "fa-github",

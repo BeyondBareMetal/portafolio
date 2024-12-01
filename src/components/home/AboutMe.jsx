@@ -55,13 +55,10 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
             <p className="lead text-center">
               <a
                 className="btn btn-outline-dark btn-lg"
-                href={resume}
-                target="_blank"
-                rel="noreferrer noopener"
-                role="button"
-                aria-label="Resume/CV"
+                href="#certifications"
+                
               >
-                Resume
+                Certifications
               </a>
             </p>
           )}
