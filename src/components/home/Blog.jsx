@@ -53,7 +53,7 @@ const Blogs = () => {
   return (
     <Jumbotron fluid id="blog" className="bg-light m-0">
       <Container className="">
-        <h2 className="display-4 pb-5 text-center">Recent Post</h2>
+        <h2 className="display-4 pb-5 text-center">Recent Posts</h2>
         <Row>
       	  {post && post.length > 0 ?(
             	post.map((item) =>(
