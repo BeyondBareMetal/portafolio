@@ -69,7 +69,7 @@ const Project = ({ heading}) => {
                 <Card.Title as="h5">{ `Azure Onboard Automator` || <Skeleton />} </Card.Title>
                 <Card.Text>{`Streamline and automate the process of onboarding a new employee into Azure AD and assigning necessary Azure resources.` || <Skeleton count={3} />} </Card.Text>
                 <Card.Footer>
-                  <Link to="#"  className="btn btn-outline-secondary mx-2">Read More</Link>
+                  <Link to="https://beyondbaremetal.hashnode.dev/azure-app-onboarder"  className="btn btn-outline-secondary mx-2">Read More</Link>
                 </Card.Footer>
               </Card.Body>
             </Card>
