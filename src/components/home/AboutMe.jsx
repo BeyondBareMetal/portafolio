@@ -9,6 +9,7 @@ const pictureLinkRegex = new RegExp(
 );
 
 const AboutMe = ({ heading, message, link, imgSize, resume }) => {
+  
   const [profilePicUrl, setProfilePicUrl] = React.useState("");
   const [showPic, setShowPic] = React.useState(Boolean(link));
   // https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
@@ -50,7 +51,11 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
         </div>
         <div className={`col-lg-${showPic ? "7" : "12"}`}>
           <h2 className="display-4 mb-5 text-center">{heading}</h2>
-          <p className="lead text-center">{message}</p>
+          <p className="lead text-center">
+
+          Hi, I'm <b>Gabriel Gonzalez</b> , a <b>Systems Engineer</b> with a passion for <b>IT infrastructure</b> and technology with expertise in managing various types of IT environments, I specialize in <b>Server and Network administration, Virtualization, and Cloud solutions</b>. 
+          My technical toolkit includes <b>Windows Server, VMware ESXi, Hyper-V, PowerShell, Microsoft 365, Azure</b> and <b>network technologies</b> from <b>Cisco , Meraki , Sonicwall , Fortigate , Watchguard </b>and <b>Ubiquiti</b> . I thrive on solving complex IT challenges and continuously improving technological ecosystems. Always eager to take on new challenges, I'm committed to pushing the boundaries of technology and expanding my skills in an ever-evolving IT landscape.
+          </p>
           {resume && (
             <p className="lead text-center">
               <a

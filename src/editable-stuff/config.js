@@ -43,7 +43,7 @@ const about = {
   imageLink: require("../editable-stuff/hashirshoaeb.png"),
   imageSize: 375,
   message:
-    "Hi, I'm Gabriel Gonzalez, a Systems Engineer with a passion for IT infrastructure and technology with expertise in managing various types of IT environments, I specialize in server and network administration, virtualization, and cloud solutions. My technical toolkit includes Windows Server, VMware ESXi, Hyper-V, PowerShell, Microsoft 365, Azure and network technologies from Cisco, Meraki, Sonicwall, Fortigate, Watchguard and Ubiquiti. I thrive on solving complex IT challenges and continuously improving technological ecosystems. Always eager to take on new challenges, I'm committed to pushing the boundaries of technology and expanding my skills in an ever-evolving IT landscape.",
+    `Hi, I'm Gabriel Gonzalez , a Systems Engineer with a passion for IT infrastructure and technology with expertise in managing various types of IT environments, I specialize in server and network administration, virtualization, and cloud solutions . My technical toolkit includes Windows Server, VMware ESXi, Hyper-V, PowerShell, Microsoft 365, Azure and Network Technologies from Cisco , Meraki , Sonicwall , Fortigate , Watchguard and Ubiquiti . I thrive on solving complex IT challenges and continuously improving technological ecosystems. Always eager to take on new challenges, I'm committed to pushing the boundaries of technology and expanding my skills in an ever-evolving IT landscape.`,
   resume: "https://docs.google.com/document/d/13_PWdhThMr6roxb-UFiJj4YAFOj8e_bv3Vx9UHQdyBQ/edit?usp=sharing",
 };
 
